@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>helloworld &#8212; helloworld May 2021 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for helloworld</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Created on Thu May 20 09:49:07 2021</span>
+
+<span class="sd">Test and document creation of a github project</span>
+
+<span class="sd">@author: e4hgurge</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">time</span><span class="o">,</span><span class="nn">datetime</span><span class="o">,</span><span class="nn">sys</span>
+<span class="n">stf</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">%b%y&quot;</span>
+<span class="n">sep</span><span class="o">=</span><span class="s2">&quot; --- &quot;</span>
+
+<div class="viewcode-block" id="getday"><a class="viewcode-back" href="../api.html#helloworld.getday">[docs]</a><span class="k">def</span> <span class="nf">getday</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">d</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Call with ``y`` (year), ``m`` (month), and ``d`` (day). The </span>
+<span class="sd">        returned value is a date string ending with a separator.</span>
+
+<span class="sd">        **Example**</span>
+<span class="sd">            &gt;&gt;&gt; getday(2021,5,21)</span>
+<span class="sd">            &gt;&gt;&gt; &quot;20May21 --- &quot;</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">d</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">stf</span><span class="p">)</span><span class="o">+</span><span class="n">sep</span> </div>
+
+<span class="c1">#</span>
+<span class="n">t</span><span class="o">=</span><span class="n">getday</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="s2">&quot;New Folder: H:\My Documents\git\helloworld&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="s2">&quot;&#39;git init&#39;: Initialise empty git repository&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="s2">&quot;Create README.md using a text editor&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="s2">&quot;&#39;git add README.md&#39; : Stage the README file&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="s2">&quot;Create a file PRIVATE.txt as a file to be ignored&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="s2">&quot;Create &#39;.gitignore&#39; using a text editor with &#39;PRIVATE.txt&#39; on its first line&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="s2">&quot;&#39;git status&#39; to confirm that &#39;git&#39; ignores PRIVATE.txt&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="s2">&quot;&#39;git add .gitignore&#39; : Stage the file &#39;.gitignore&#39;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="s2">&quot;&#39;git commit -am </span><span class="se">\&quot;</span><span class="s2">First Commit</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="s2">&quot;Login to github and create a new empty repository on &#39;github.com&#39; named &#39;helloworld&#39;.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">git remote add origin https://github.com/Gurgenci/helloworld.git (needs local git credential to have been set before)</span><span class="se">\</span>
+<span class="se">\n</span><span class="s2">git branch -M main</span><span class="se">\n</span><span class="s2">git push -u origin main&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="s2">&quot;Start VS Code on &#39;helloworld&#39; folder and start a terminal (windows powershell)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="s2">&quot;&#39;mkdir docs&#39;   The docs folder will contain all documentation.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="s2">&quot;&#39;cd docs&#39;  --&gt; we are now in &#39;H:\My Documents\git\helloworld\docs&#39;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="s2">&quot;pip install sphinx (unless you already have done so)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="s2">&quot;&#39;sphinx-quickstart&#39; and then answer questions:</span><span class="se">\n\</span>
+<span class="s2">&gt; Separate source and build directories (y/n) [n] : y</span><span class="se">\n\</span>
+<span class="s2">&gt; Project name: helloworld</span><span class="se">\n</span><span class="s2">&gt; Author name(s) : Hal Gurgenci</span><span class="se">\n\</span>
+<span class="s2">&gt; Project release []: May 2021</span><span class="se">\n\</span>
+<span class="s2">&gt; Project language [en]: </span><span class="se">\n\</span>
+<span class="s2">This creates an initial directory structure&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="s2">&quot;Edit &#39;conf.py&#39; in &#39;docs\source&#39; folder as follows:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">extensions = [&#39;sphinx.ext.autodoc&#39;, &#39;sphinx.ext.doctest&#39;,&#39;sphinx.ext.mathjax&#39;,</span><span class="se">\</span>
+<span class="s2">&#39;sphinx.ext.viewcode&#39;]&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="s2">&quot;&#39;./make html&#39; : To create a scaffold to hold all documentation&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="s2">&quot;Edit &#39;index.rst&#39; and set the title to &#39;Helloworld as a tutorial for github documentation&#39;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="s2">&quot;Create the LICENSE.rst file in &#39;docs&#39; folder with my one-line title and MIT License text&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="s2">&quot;Ornamental changes to index.rst&quot;</span><span class="p">)</span>
+<span class="c1">#</span>
+<span class="n">t</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">stf</span><span class="p">)</span><span class="o">+</span><span class="n">sep</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="s2">&quot;Create &#39;api.tst&#39; in &#39;docs&#39; folder.  It includes:</span><span class="se">\n\</span>
+<span class="s2">helloworld API reference</span><span class="se">\n\</span>
+<span class="s2">========================</span><span class="se">\n\</span>
+<span class="se">\n\</span>
+<span class="s2">.. automodule:: helloworld</span><span class="se">\n\</span>
+<span class="s2">    :members:</span><span class="se">\n\</span>
+<span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="s2">&quot;Add &#39;api.rst&#39; to the toctree in &#39;index.rst&#39;.  &#39;a&#39; should align with the letter &#39;t&#39; of &#39;toctree&#39;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="s2">&quot;Add the &#39;helloworld.py&#39; path to &#39;conf.py&#39; so that sphinx can find it:</span><span class="se">\n\</span>
+<span class="se">\t</span><span class="s2">sys.path.insert(0, os.path.abspath(&#39;..</span><span class="se">\\</span><span class="s2">..&#39;))&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="s2">&quot;&#39;git add docs&#39;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="s2">&quot;&#39;git commit -am &#39;adding the first commit with documentation&#39;&quot;</span><span class="p">)</span>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">helloworld</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../LICENSE.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../HELP.html">Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">helloworld API reference</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Hal Gurgenci.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
