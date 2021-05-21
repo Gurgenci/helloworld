@@ -1,0 +1,44 @@
+20May21 --- New Folder: H:\My Documents\git\helloworld
+20May21 --- 'git init': Initialise empty git repository
+20May21 --- Create README.md using a text editor
+20May21 --- 'git add README.md' : Stage the README file
+20May21 --- Create a file PRIVATE.txt as a file to be ignored
+20May21 --- Create '.gitignore' using a text editor with 'PRIVATE.txt' on its first line
+20May21 --- 'git status' to confirm that 'git' ignores PRIVATE.txt
+20May21 --- 'git add .gitignore' : Stage the file '.gitignore'
+20May21 --- 'git commit -am "First Commit"
+20May21 --- Login to github and create a new empty repository on 'github.com' named 'helloworld'.
+20May21 --- 
+git remote add origin https://github.com/Gurgenci/helloworld.git (needs local git credential to have been set before)
+git branch -M main
+git push -u origin main
+20May21 --- Start VS Code on 'helloworld' folder and start a terminal (windows powershell)
+20May21 --- 'mkdir docs'   The docs folder will contain all documentation.
+20May21 --- 'cd docs'  --> we are now in 'H:\My Documents\git\helloworld\docs'
+20May21 --- pip install sphinx (unless you already have done so)
+20May21 --- 'sphinx-quickstart' and then answer questions:
+> Separate source and build directories (y/n) [n] : y
+> Project name: helloworld
+> Author name(s) : Hal Gurgenci
+> Project release []: May 2021
+> Project language [en]: 
+This creates an initial directory structure
+20May21 --- Edit 'conf.py' in 'docs\source' folder as follows:
+	extensions = ['sphinx.ext.autodoc', 'sphinx.ext.doctest','sphinx.ext.mathjax','sphinx.ext.viewcode']
+20May21 --- './make html' : To create a scaffold to hold all documentation
+20May21 --- Edit 'index.rst' and set the title to 'Helloworld as a tutorial for github documentation'
+20May21 --- Create the LICENSE.rst file in 'docs' folder with my one-line title and MIT License text
+20May21 --- Ornamental changes to index.rst
+21May21 --- Create 'api.tst' in 'docs' folder.  It includes:
+helloworld API reference
+========================
+
+.. automodule:: helloworld
+    :members:
+
+21May21 --- Add 'api.rst' to the toctree in 'index.rst'.  'a' should align with the letter 't' of 'toctree'
+21May21 --- Add the 'helloworld.py' path to 'conf.py' so that sphinx can find it:
+	sys.path.insert(0, os.path.abspath('..\..'))
+21May21 --- 'git add docs'
+21May21 --- 'git commit -am 'adding the first commit with documentation'
+21May21 --- 'git push origin main
